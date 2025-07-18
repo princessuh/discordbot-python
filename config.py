@@ -5,5 +5,5 @@ from dotenv import load_dotenv
 
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
-PREFIX = os.getenv("COMMAND_PREFIX")
+PREFIX = os.getenv("COMMAND_PREFIX", "제이드") + " "
 BOT_NAME = os.getenv("BOT_NAME", "봇")
