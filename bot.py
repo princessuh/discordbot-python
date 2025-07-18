@@ -55,6 +55,11 @@ async def on_ready():
     bot.loop.create_task(start_web_server())
     bot.loop.create_task(ping_self())
 
+@bot.event
+async def on_message(message):
+    print(f"[DEBUG] Received message: {message.content}")
+    await bot.process_commands(message)
+
 # 메인 함수
 async def main():
     async with bot:
