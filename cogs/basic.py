@@ -49,11 +49,11 @@ class Basic(commands.Cog):
 
         content = message.content.lower().strip()
 
-        if not content.startswith("제이드"):
+        if content.startswith(self.bot.command_prefix):
             await self.bot.process_commands(message)
             return
 
-        after_name = content[len("제이드"):].strip()
+        after_name = content[len("제이드"):].strip().lower()
 
         goodnight_phrases = ["잘자", "잘 자", "잘자요", "잘 자요"]
         if any(phrase in after_name for phrase in goodnight_phrases):
@@ -78,8 +78,6 @@ class Basic(commands.Cog):
         if any(p in after_name for p in doing):
             await message.channel.send("저요? 귀여운 애인 생각하고 있었죠!")
             return
-
-        await self.bot.process_commands(message)
 
 async def setup(bot):
     await bot.add_cog(Basic(bot))
