@@ -50,6 +50,7 @@ class Basic(commands.Cog):
         content = message.content.lower().strip()
 
         if not content.startswith("제이드"):
+            await self.bot.process_commands(message)
             return
 
         after_name = content[len("제이드"):].strip()
