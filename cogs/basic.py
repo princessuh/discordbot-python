@@ -51,7 +51,6 @@ class Basic(commands.Cog):
 
         # command_prefix가 붙은 경우 → 봇 명령어 처리 (자연어 무시)
         if content.startswith(str(self.bot.command_prefix)):
-            await self.bot.process_commands(message)
             return
 
         # 자연어 응답 파트
