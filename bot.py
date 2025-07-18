@@ -38,7 +38,7 @@ async def ping_self():
     while not bot.is_closed():
         try:
             async with aiohttp.ClientSession() as session:
-                await session.get(os.environ["KOYEP_URL"])
+                await session.get(os.environ["KOYEB_URL"])
         except:
             pass
         await asyncio.sleep(180)
