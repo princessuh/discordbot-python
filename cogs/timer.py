@@ -114,7 +114,7 @@ class Timer(commands.Cog):
                         if guild.system_channel:
                             try:
                                 await guild.system_channel.send(
-                                    f"🔔 타이머 채널이 설정되어 있지 않아 {member.display_name} 님의 기록을 저장하지 못했어요.\n"
+                                    f"타이머 채널이 설정되어 있지 않아 {member.display_name} 님의 기록을 저장하지 못했어요.\n"
                                     f"`타이머` 명령어로 채널을 지정해주세요."
                                 )
                             except discord.Forbidden:
@@ -126,7 +126,7 @@ class Timer(commands.Cog):
                         if guild.owner:
                             try:
                                 await guild.owner.send(
-                                    f"📌 서버 **{guild.name}** (ID: {guild.id})에서 타이머 기록 채널이 설정되지 않아\n"
+                                    f"서버 **{guild.name}** (ID: {guild.id})에서 타이머 기록 채널이 설정되지 않아\n"
                                     f"{member.display_name} 님의 음성 참여 기록을 저장하지 못했어요.\n"
                                     f"`타이머` 명령어로 기록할 채널을 설정해주세요."
                                 )

@@ -2,8 +2,8 @@ import discord
 from discord.ext import commands
 import asyncio
 from config import TOKEN, PREFIX
-from aiohttp import web
 import aiohttp
+from aiohttp import web
 import os
 
 intents = discord.Intents.default()
@@ -49,8 +49,7 @@ async def ping_self():
 # on_ready 이벤트
 @bot.event
 async def on_ready():
-    print("✅ Bot Started")
-    print("✅ on_ready() fired")
+    print("Bot Started")
     await bot.change_presence(
         status=discord.Status.online,
         activity=discord.Game("애인 생각 중")
