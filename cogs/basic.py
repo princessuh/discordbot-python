@@ -77,5 +77,7 @@ class Basic(commands.Cog):
                 await message.channel.send("저요? 귀여운 애인 생각하고 있었죠!")
                 return
 
+        await self.bot.process_commands(message)
+
 async def setup(bot):
     await bot.add_cog(Basic(bot))
