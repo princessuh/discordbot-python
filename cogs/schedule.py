@@ -6,8 +6,13 @@ import json
 import os
 from datetime import datetime, timedelta
 import pytz
+from pathlib import Path
 
-SCHEDULE_FILE = "data/schedules.json"
+SCHEDULE_FILE = Path("data/schedules.json")
+SCHEDULE_FILE.parent.mkdir(parents=True, exist_ok=True)
+
+if not SCHEDULE_FILE.exists():
+    SCHEDULE_FILE.write_text(json.dumps({}))
 
 def load_schedules():
     if not os.path.exists(SCHEDULE_FILE):

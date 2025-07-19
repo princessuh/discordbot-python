@@ -5,8 +5,13 @@ import os
 import random
 from datetime import datetime
 import pytz
+from pathlib import Path
 
-ATTENDANCE_FILE = "data/attendance.json"
+ATTENDANCE_FILE = Path("data/attendance.json")
+ATTENDANCE_FILE.parent.mkdir(parents=True, exist_ok=True)
+
+if not ATTENDANCE_FILE.exists():
+    ATTENDANCE_FILE.write_text(json.dumps({}))
 
 def load_attendance():
     if not os.path.exists(ATTENDANCE_FILE):
@@ -39,7 +44,7 @@ class Attendance(commands.Cog):
         })
 
         if user_data["last_check"] == today:
-            await ctx.send(f"{ctx.author.mention} 오늘은 이미 출석했어요!")
+            await ctx.send(f"{ctx.author.mention} 오늘은 이미 출석하셨잖아요~ 저 다 기억하고 있어요! 내일 또 와주실 거죠?")
             return
 
         # 출석 처리
@@ -71,7 +76,7 @@ class Attendance(commands.Cog):
         guild_id = str(ctx.guild.id)
 
         count = self.attendance_data.get(guild_id, {}).get(user_id, {}).get("count", 0)
-        await ctx.send(f"{ctx.author.mention}님의 누적 출석 횟수는 {count}일입니다!")
+        await ctx.send(f"{ctx.author.mention}님은... 지금까지 {count}일 출석하셨네요! 멋져요~")
 
     @commands.command(name="출석랭킹")
     async def attendance_rank(self, ctx):

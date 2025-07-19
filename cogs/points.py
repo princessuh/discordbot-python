@@ -2,8 +2,13 @@ from discord.ext import commands
 import discord
 import json
 import os
+from pathlib import Path
 
-POINTS_FILE = "data/points.json"
+POINTS_FILE = Path("data/points.json")
+POINTS_FILE.parent.mkdir(parents=True, exist_ok=True)
+
+if not POINTS_FILE.exists():
+    POINTS_FILE.write_text(json.dumps({}))
 
 
 def load_points():

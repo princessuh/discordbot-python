@@ -4,9 +4,14 @@ from datetime import datetime
 import pytz
 import json
 import os
+from pathlib import Path
 
-TIMER_CHANNEL_FILE = "data/timer_channel.json"
-TIMER_DATA_FILE = "data/timer_data.json"
+TIMER_CHANNEL_FILE = Path("data/timer_channel.json")
+TIMER_DATA_FILE = Path("data/timer_data.json")
+TIMER_DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
+
+if not TIMER_DATA_FILE.exists():
+    TIMER_DATA_FILE.write_text(json.dumps({}))
 
 def load_json(path):
     if not os.path.exists(path):

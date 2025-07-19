@@ -4,16 +4,19 @@ from datetime import datetime
 import pytz
 import os
 import json
+from pathlib import Path
 
-WELCOME_CHANNEL_FILE = "data/welcome_channel.json"
+WELCOME_CHANNEL_FILE = Path("data/welcome_channel.json")
+WELCOME_CHANNEL_FILE.parent.mkdir(parents=True, exist_ok=True)
 
+if not WELCOME_CHANNEL_FILE.exists():
+    WELCOME_CHANNEL_FILE.write_text(json.dumps({}))
 
 def load_json(path):
     if not os.path.exists(path):
         return {}
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
-
 
 def save_json(path, data):
     with open(path, "w", encoding="utf-8") as f:
