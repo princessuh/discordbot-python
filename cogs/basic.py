@@ -49,6 +49,12 @@ class Basic(commands.Cog):
 
         content = message.content.strip()
 
+        ctx = await self.bot.get_context(message)
+
+        # 1. 명령어가 유효하다면, 다른 Cog의 명령어라면 처리만 하고 리턴
+        if ctx.valid:
+            return
+
         # 자연어 응답 파트
         if content.startswith("제이드"):
             after_name = content[len("제이드"):].strip().lower()
@@ -72,6 +78,8 @@ class Basic(commands.Cog):
             if any(p in after_name for p in ["뭐해", "뭐해?", "뭐하니", "뭐 하니", "뭐하고 있어?"]):
                 await message.channel.send("저요? 귀여운 애인 생각하고 있었죠!")
                 return
+
+        await message.channel.send("앗, 잘못 말씀하신 것 같은데~ 다시 말씀해주실래요?")
 
 async def setup(bot):
     await bot.add_cog(Basic(bot))
