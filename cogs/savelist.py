@@ -3,7 +3,7 @@ from pathlib import Path
 from discord.ext import commands
 
 DATA_FILE = Path("data/list_data.json")
-DATA_FILE.parent.mkdir(parents=True, exist_ok=True)  # data 폴더 없으면 생성
+DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 if not DATA_FILE.exists():
     DATA_FILE.write_text(json.dumps({}))
@@ -45,7 +45,10 @@ class List(commands.Cog):
             link = link_msg.content.strip()
 
             guild_data = self.get_guild_data(guild_id)
-            guild_data[name] = link
+            guild_data[name] = {
+                "content": link,
+                "author": f"{ctx.author.name}"
+            }
             self.save_data()
             await ctx.send(f"**'{name}'** 이(가) 저장되었습니다.")
         except Exception:
@@ -82,8 +85,10 @@ class List(commands.Cog):
             await ctx.send("저장된 리스트가 없어요.")
         else:
             lines = ["저장된 리스트 목록:\n"]
-            for name, link in guild_data.items():
-                lines.append(f"• **{name}**: <{link}>")
+            for name, entry in guild_data.items():
+                content = entry["content"]
+                author = entry["author"]
+                lines.append(f"• **{name}**: <{content}> _(by {author})_")
             await ctx.send("\n".join(lines))
 
 
