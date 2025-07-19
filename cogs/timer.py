@@ -91,7 +91,7 @@ class Timer(commands.Cog):
                     duration_str = f"{h}시간 {m}분 {s}초" if h > 0 else f"{m}분 {s}초"
 
                     embed = discord.Embed(
-                        title=f"🎧 오늘의 음성 채널 참여 기록",
+                        title=f"음성 채널 참여 기록",
                         description=f"{now.strftime('%Y년 %m월 %d일 %H:%M')} 기준",
                         color=discord.Color.from_rgb(255, 192, 203)
                     )
