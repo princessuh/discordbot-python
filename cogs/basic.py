@@ -47,7 +47,7 @@ class Basic(commands.Cog):
         if message.author.bot:
             return
 
-        content = message.content.strip()
+        content = message.content.lower().strip()
 
         # command_prefix가 붙은 경우 → 봇 명령어 처리 (자연어 무시)
         if content.startswith(str(self.bot.command_prefix)):
@@ -55,18 +55,21 @@ class Basic(commands.Cog):
             return
 
         # 자연어 응답 파트
-        if content.startswith("제이드"):
-            after_name = content[len("제이드"):].strip().lower()
+        if content.startswith("제이드 "):
+            after_name = content[len("제이드 "):].strip().lower()
 
-            if any(p in after_name for p in ["잘자", "잘 자", "잘자요", "잘 자요"]):
+            goodnight_phrases = ["잘자", "잘 자", "잘자요", "잘 자요"]
+            if any(phrase in after_name for phrase in goodnight_phrases):
                 await message.channel.send("주무시려고요? 푹 자고 내일 만나요!")
                 return
 
-            if any(p in after_name for p in ["기분 어때", "기분이 어때", "기분어때", "기분"]):
+            mood_phrases = ["기분 어때", "기분이 어때", "기분어때", "기분"]
+            if any(p in after_name for p in mood_phrases):
                 await message.channel.send("제 기분이요? 좋죠~ 이렇게 누군가와 대화하는 건 늘 재밌거든요.")
                 return
 
-            if any(p in after_name for p in ["몇시야", "몇 시야", "몇 시니", "몇 시인지 알아", "지금 몇 시", "현재 시간"]):
+            time_phrases = ["몇시야", "몇 시야", "몇 시니", "몇 시인지 알아", "지금 몇 시", "현재 시간"]
+            if any(p in after_name for p in time_phrases):
                 now = datetime.now(pytz.timezone('Asia/Seoul'))
                 hour = now.strftime("%I")
                 minute = now.strftime("%M")
@@ -74,11 +77,10 @@ class Basic(commands.Cog):
                 await message.channel.send(f"지금은 {period} {hour}시 {minute}분이에요!")
                 return
 
-            if any(p in after_name for p in ["뭐해", "뭐해?", "뭐하니", "뭐 해", "뭐 하니", "뭐하고 있어?"]):
+            doing = ["뭐해", "뭐해?", "뭐하니", "뭐 해", "뭐 하니", "뭐하고 있어?"]
+            if any(p in after_name for p in doing):
                 await message.channel.send("저요? 귀여운 애인 생각하고 있었죠!")
                 return
-
-        await self.bot.process_commands(message)
 
 async def setup(bot):
     await bot.add_cog(Basic(bot))
