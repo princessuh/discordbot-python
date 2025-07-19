@@ -8,11 +8,14 @@ import os
 
 intents = discord.Intents.default()
 intents.message_content = True
+intents.members = True
 bot = commands.Bot(command_prefix=PREFIX, intents=intents)
 
 initial_extensions = [
     "cogs.basic",
     "cogs.help",
+    "cogs.welcome",
+    "cogs.timer",
     "cogs.savelist",
     "cogs.schedule",
     "cogs.points",
