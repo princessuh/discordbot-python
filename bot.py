@@ -53,7 +53,7 @@ async def on_ready():
     print("Bot Started")
     await bot.change_presence(
         status=discord.Status.online,
-        activity=discord.Game("애인 생각 중")
+        activity=discord.Game("애인 생각")
     )
     bot.loop.create_task(start_web_server())
     bot.loop.create_task(ping_self())
