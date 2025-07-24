@@ -15,6 +15,7 @@ initial_extensions = [
     "cogs.basic",
     "cogs.help",
     "cogs.welcome",
+    "cogs.announcement",
     "cogs.timer",
     "cogs.savelist",
     "cogs.schedule",
