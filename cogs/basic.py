@@ -2,6 +2,7 @@ from discord.ext import commands
 import discord
 from datetime import datetime, time
 import pytz
+import random
 
 
 class Basic(commands.Cog):
@@ -70,7 +71,14 @@ class Basic(commands.Cog):
                 period = "오전" if now.hour < 12 else "오후"
                 await message.channel.send(f"지금은 {period} {hour}시 {minute}분이에요!")
             elif any(p in after_name for p in ["뭐해", "뭐해?", "뭐하니", "뭐 하고 있니", "뭐하고 있어?"]):
-                await message.channel.send("저요? 귀여운 애인 생각하고 있었죠!")
+                responses = [
+                    "저요? 귀여운 애인 생각하고 있었죠!",
+                    "잠깐 쉬고 있었어요~ 무슨 일이세요? 같이 놀까요?",
+                    "심심해서 뭐할까~ 고민 중이었어요. 당신은요?",
+                    "비밀이에요!",
+                    "퇴근하면 애인이랑 뭐하고 놀까~ 고민 중이에요~"
+                ]
+                await message.channel.send(random.choice(responses))
             else:
                 await message.channel.send("앗, 잘못 말씀하신 것 같은데~ 다시 말씀해주실래요?")
 
