@@ -3,7 +3,7 @@ import discord
 import json
 import os
 
-ANNOUNCE_FILE = "data/announcement.json"
+ANNOUNCE_FILE = "../data/announcement.json"
 
 def load_json(path):
     if not os.path.exists(path):

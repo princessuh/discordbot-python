@@ -6,7 +6,7 @@ import os
 import json
 from pathlib import Path
 
-WELCOME_CHANNEL_FILE = Path("data/welcome_channel.json")
+WELCOME_CHANNEL_FILE = Path("../data/welcome_channel.json")
 WELCOME_CHANNEL_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 if not WELCOME_CHANNEL_FILE.exists():

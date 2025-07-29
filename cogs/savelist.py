@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 from discord.ext import commands
 
-DATA_FILE = Path("data/list_data.json")
+DATA_FILE = Path("../data/list_data.json")
 DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 if not DATA_FILE.exists():

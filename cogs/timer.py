@@ -6,8 +6,8 @@ import json
 import os
 from pathlib import Path
 
-TIMER_CHANNEL_FILE = Path("data/timer_channel.json")
-TIMER_DATA_FILE = Path("data/timer_data.json")
+TIMER_CHANNEL_FILE = Path("../data/timer_channel.json")
+TIMER_DATA_FILE = Path("../data/timer_data.json")
 TIMER_DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 if not TIMER_DATA_FILE.exists():

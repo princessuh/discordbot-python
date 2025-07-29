@@ -7,7 +7,7 @@ from datetime import datetime
 import pytz
 from pathlib import Path
 
-ATTENDANCE_FILE = Path("data/attendance.json")
+ATTENDANCE_FILE = Path("../data/attendance.json")
 ATTENDANCE_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 if not ATTENDANCE_FILE.exists():

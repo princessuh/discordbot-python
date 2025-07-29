@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 import pytz
 from pathlib import Path
 
-SCHEDULE_FILE = Path("data/schedules.json")
+SCHEDULE_FILE = Path("../data/schedules.json")
 SCHEDULE_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 if not SCHEDULE_FILE.exists():
