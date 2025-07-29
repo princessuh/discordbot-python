@@ -40,7 +40,7 @@ class Schedule(commands.Cog):
         def check(msg):
             return msg.author == ctx.author and msg.channel == ctx.channel
 
-        await ctx.send("추가할 일정의 이름을 입력해주세요:")
+        await ctx.send("추가할 일정의 이름을 입력해주세요.")
         try:
             name_msg = await self.bot.wait_for("message", timeout=60.0, check=check)
         except:
