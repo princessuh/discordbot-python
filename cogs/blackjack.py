@@ -202,7 +202,7 @@ class Blackjack(commands.Cog):
 
         # 결과 판정
         result = (
-                f"\n{ctx.author.display_name}이 받으신 카드: {self.format_cards(player_cards)} (합계: {player_score})\n"
+                f"\n{ctx.author.display_name}씨가 받으신 카드: {self.format_cards(player_cards)} (합계: {player_score})\n"
                 f"자, 제 패는~\n{self.format_cards(dealer_cards)} (합계: {dealer_score})\n"
             )
 
