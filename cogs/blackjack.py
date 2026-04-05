@@ -114,7 +114,7 @@ class Blackjack(commands.Cog):
 
         if player_blackjack or dealer_blackjack:
             result = (
-                f"\n{ctx.author.display_name}이 받은 카드: {self.format_cards(player_cards)} (합계: {player_score})\n"
+                f"\n{ctx.author.display_name}씨가 받은 카드: {self.format_cards(player_cards)} (합계: {player_score})\n"
                 f"제 패도 보여드릴게요~\n{self.format_cards(dealer_cards)} (합계: {dealer_score})\n"
             )
 
