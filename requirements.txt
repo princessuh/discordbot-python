@@ -1,0 +1,5 @@
+discord.py
+python-dotenv
+
+#시간
+pytz
