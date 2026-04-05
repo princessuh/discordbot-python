@@ -177,7 +177,7 @@ class Blackjack(commands.Cog):
                     self.points.subtract_points(user_id, guild_id, amount)
                     msg_addition = await self.handle_streak(ctx, user_id, guild_id, amount, -1)
                     await ctx.send(
-                        f"앗, 21을 넘었네요! 아쉬워라. {amount}는 제가 잘 가지고 있을게요~{msg_addition}"
+                        f"앗, 21을 넘었네요! 아쉬워라. {amount}P는 제가 잘 가지고 있을게요~{msg_addition}"
                     )
                     return
             else:
