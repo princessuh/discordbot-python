@@ -21,7 +21,7 @@ initial_extensions = [
     "cogs.schedule",
     "cogs.points",
     "cogs.attendance",
-    "cogs.dice_gamble"
+    "cogs.dice_gamble",
     "cogs.blackjack"
 ]
 
